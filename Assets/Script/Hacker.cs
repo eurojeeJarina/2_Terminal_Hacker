@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Hacker : MonoBehaviour
 {
+    //Game configuration data
+    string[] level1Password = {"books", "aisle", "self", "password", "font", "borrow"};
+    string[] level2Password = { "prisoner", "handcuffs", "holster", "uniform", "arrest"};
+
     // Game State
     int level;
 
@@ -12,6 +16,7 @@ public class Hacker : MonoBehaviour
     Screen currentScreen;
 
     string password;
+    private object level1Passwords;
 
 
     // Start is called before the first frame update
@@ -52,16 +57,11 @@ public class Hacker : MonoBehaviour
 
     void RunMainMenu(string input)
     {
-        if (input == "1")
+        bool isValidLevelNumber = (input == "1" || input == "2");
+
+        if (isValidLevelNumber)
         {
-            level = 1;
-            password = "librarian";
-            StartGame();
-        }
-        else if (input == "2")
-        {
-            level = 2;
-            password = "capture";
+            level = int.Parse(input); // convert into integer
             StartGame();
         }
         else
