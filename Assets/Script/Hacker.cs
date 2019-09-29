@@ -51,7 +51,7 @@ public class Hacker : MonoBehaviour
 
     void StartGame()
     {
-        Terminal.WriteLine("Level " + level + " breached");
+        Terminal.WriteLine("Level " + level + " reached");
     }
     
 }
