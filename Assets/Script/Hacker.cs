@@ -16,7 +16,7 @@ public class Hacker : MonoBehaviour
     Screen currentScreen;
 
     string password;
-    private object level1Passwords;
+ 
 
 
     // Start is called before the first frame update
@@ -77,10 +77,10 @@ public class Hacker : MonoBehaviour
         switch (level)
         {
             case 1:
-                password = level1Password[2];
+                password = level1Password[Random.Range(0, level1Password.Length)];
                 break;
-            case 2:
-                password = level2Password[4];
+            case 2:  
+                password = level2Password[Random.Range(0, level2Password.Length)];
                 break;
             default:
                 Debug.LogError("invalid level number");
