@@ -73,7 +73,19 @@ public class Hacker : MonoBehaviour
     void StartGame()
     {
         currentScreen = Screen.Password;
-        Terminal.WriteLine("Level " + level + " reached");
+        Terminal.ClearScreen();
+        switch (level)
+        {
+            case 1:
+                password = level1Password[2];
+                break;
+            case 2:
+                password = level2Password[4];
+                break;
+            default:
+                Debug.LogError("invalid level number");
+                break;
+        }
         Terminal.WriteLine("Please enter password: ");
 
     }
@@ -82,7 +94,8 @@ public class Hacker : MonoBehaviour
     {
         if (input == password)
         {
-            Terminal.WriteLine("***Level " + level + " BREACHED***");
+            Terminal.ClearScreen();
+            Terminal.WriteLine("***Level " + level + " GRANTED ACCESS***");
         }
         else {
             Terminal.WriteLine("Access Denied!");
