@@ -23,6 +23,7 @@ public class Hacker : MonoBehaviour
 
     void ShowMainMenu()
     {
+        Terminal.ClearScreen();
         currentScreen = Screen.MainMenu;
         Terminal.WriteLine("What would you like to hack into?");
         Terminal.WriteLine(" ");
@@ -45,7 +46,7 @@ public class Hacker : MonoBehaviour
             RunMainMenu(input);
         } else if (currentScreen == Screen.Password)
         {
-
+            CheckPassword(input);
         }
     }
 
@@ -60,7 +61,7 @@ public class Hacker : MonoBehaviour
         else if (input == "2")
         {
             level = 2;
-            password = "police";
+            password = "capture";
             StartGame();
         }
         else
@@ -79,9 +80,12 @@ public class Hacker : MonoBehaviour
 
     void CheckPassword(string input)
     {
-        if()
+        if (input == password)
         {
-
+            Terminal.WriteLine("***Level " + level + " BREACHED***");
+        }
+        else {
+            Terminal.WriteLine("Access Denied!");
         }
     }
 }
